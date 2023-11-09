@@ -45,5 +45,5 @@ def scrape_constitution(start_url, end_url):
         constitution_data = scrape_constitution(start_url, end_url)
 
         # Guardar los datos en un archivo JSON
-        with open('constitution_data.json', 'w', encoding='utf-8') as f:
+        with open('./data/constitution_data.json', 'w', encoding='utf-8') as f:
             json.dump(constitution_data, f, ensure_ascii=False, indent=4)
