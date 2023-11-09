@@ -35,7 +35,7 @@ def scrape_constitution(start_url, end_url):
             current_url = next_url
         else:
             break
-        return data
+    return data
 
 # URL inicial y final
 start_url = "http://www.secretariasenado.gov.co/senado/basedoc/constitucion_politica_1991.html"
