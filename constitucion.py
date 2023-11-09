@@ -20,10 +20,12 @@ def scrape_constitution(start_url, end_url):
 
         for p in p_tags:
             a_tag = p.find('a')  # Find <a> tag inside <p> tag
+            
+            articulo = None
             if a_tag:
-                articulo = a_tag.text  # Get the text inside <a> tag
-                contenido = p.text  # Get the text inside <p> tag
-                data.append({'articulo': articulo, 'contenido': contenido})
+                articulo = a_tag.text 
+            contenido = p.text  # Get the text inside <p> tag
+            data.append({'articulo': articulo, 'contenido': contenido})
 
         # Find the "next" link
         next_link = soup.find('a', text='Siguiente')
