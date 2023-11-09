@@ -1,9 +1,8 @@
 version: '3'
 services:
   app:
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    image: python:3.8
     volumes:
       - .:/usr/src/app
-    command: python ./constitucion.py
+    working_dir: /usr/src/app
+    command: pip install --no-cache-dir -r requirements.txt && python ./constitucion.py
