@@ -29,13 +29,14 @@ def scrape_constitution(start_url, end_url):
 
         # Find the "next" link
         next_link = soup.find('a', text='Siguiente')
+
+        if current_url == end_url:
+            break
         
         if next_link:
             next_url = next_link.get('href')
             if not next_url.startswith('http://www.secretariasenado.gov.co/senado/basedoc/'):
                 next_url = 'http://www.secretariasenado.gov.co/senado/basedoc/' + next_url
-            if next_url == end_url:
-                break
             current_url = next_url
         else:
             break
