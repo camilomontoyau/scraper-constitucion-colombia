@@ -3,6 +3,6 @@ services:
   app:
     image: python:3.8
     volumes:
-      - .:/usr/src/app
+      - ./:/usr/src/app/
     working_dir: /usr/src/app
     command: pip install --no-cache-dir -r requirements.txt && python ./constitucion.py

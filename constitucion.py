@@ -37,13 +37,13 @@ def scrape_constitution(start_url, end_url):
             break
         return data
 
-        # URL inicial y final
-        start_url = "http://www.secretariasenado.gov.co/senado/basedoc/constitucion_politica_1991.html"
-        end_url = "http://www.secretariasenado.gov.co/senado/basedoc/constitucion_politica_1991_pr015.html"
+# URL inicial y final
+start_url = "http://www.secretariasenado.gov.co/senado/basedoc/constitucion_politica_1991.html"
+end_url = "http://www.secretariasenado.gov.co/senado/basedoc/constitucion_politica_1991_pr015.html"
 
-        # Ejecutar el scraper
-        constitution_data = scrape_constitution(start_url, end_url)
+# Ejecutar el scraper
+constitution_data = scrape_constitution(start_url, end_url)
 
-        # Guardar los datos en un archivo JSON
-        with open('constitution_data.json', 'w', encoding='utf-8') as f:
+# Guardar los datos en un archivo JSON
+with open('constitution_data.json', 'w', encoding='utf-8') as f:
             json.dump(constitution_data, f, ensure_ascii=False, indent=4)
