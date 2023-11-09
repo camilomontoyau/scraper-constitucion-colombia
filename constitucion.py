@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+import os
+import errno
 
 def scrape_constitution(start_url, end_url):
     current_url = start_url
@@ -44,6 +46,13 @@ end_url = "http://www.secretariasenado.gov.co/senado/basedoc/constitucion_politi
 # Ejecutar el scraper
 constitution_data = scrape_constitution(start_url, end_url)
 
-# Guardar los datos en un archivo JSON
-with open('constitution_data.json', 'w', encoding='utf-8') as f:
-            json.dump(constitution_data, f, ensure_ascii=False, indent=4)
+try:
+    # Use an absolute file path
+    file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'constitution_data.json')
+
+    with open(file_path, 'w', encoding='utf-8') as f:
+        json.dump(constitution_data, f, ensure_ascii=False, indent=4)
+except IOError as e:
+    # print error and exit 1
+    print("I/O error({0}): {1}".format(e.errno, e.strerror))
+    exit(1)
