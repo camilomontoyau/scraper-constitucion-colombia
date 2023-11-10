@@ -1,3 +1,4 @@
+from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -18,14 +19,14 @@ def scrape_constitution(start_url, end_url):
         soup = BeautifulSoup(response.content, 'html.parser')
         p_tags = soup.find_all('p')  # Find all <p> tags
 
-        for p in p_tags:
+        for i, p in enumerate(p_tags):
             a_tag = p.find('a')  # Find <a> tag inside <p> tag
             
             articulo = None
             if a_tag:
                 articulo = a_tag.text 
             contenido = p.text  # Get the text inside <p> tag
-            data.append({'articulo': articulo, 'contenido': contenido})
+            data.append({'url': current_url,  'index': i, 'articulo': articulo, 'contenido': contenido, 'date_taken': datetime.now().isoformat()})
 
         # Find the "next" link
         next_link = soup.find('a', text='Siguiente')
