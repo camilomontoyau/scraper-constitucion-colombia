@@ -53,6 +53,7 @@ constitution_data = scrape_constitution(start_url, end_url)
 try:
     # Use an absolute file path
     file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/constitution_data.json')
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(constitution_data, f, ensure_ascii=False, indent=4)
