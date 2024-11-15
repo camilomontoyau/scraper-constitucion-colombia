@@ -44,7 +44,7 @@ def scrape_constitution(start_url, end_url):
     return data
 
 # URL inicial y final
-start_url = "http://www.secretariasenado.gov.co/senado/basedoc/constitucion_politica_1991.html"
+start_url = "http://www.secretariasenado.gov.co/senado/basedoc/codigo_civil.html"
 end_url = "http://www.secretariasenado.gov.co/senado/basedoc/constitucion_politica_1991_pr015.html"
 
 # Ejecutar el scraper
