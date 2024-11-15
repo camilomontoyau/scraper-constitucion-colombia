@@ -45,14 +45,14 @@ def scrape_constitution(start_url, end_url):
 
 # URL inicial y final
 start_url = "http://www.secretariasenado.gov.co/senado/basedoc/codigo_civil.html"
-end_url = "http://www.secretariasenado.gov.co/senado/basedoc/constitucion_politica_1991_pr015.html"
+end_url = "http://www.secretariasenado.gov.co/senado/basedoc/codigo_civil_pr083.html"
 
 # Ejecutar el scraper
 constitution_data = scrape_constitution(start_url, end_url)
 
 try:
     # Use an absolute file path
-    file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/constitution_data.json')
+    file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/codigo_civil_data.json')
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
     with open(file_path, 'w', encoding='utf-8') as f:
